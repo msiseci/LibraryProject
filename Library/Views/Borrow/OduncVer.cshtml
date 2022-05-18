@@ -1,0 +1,40 @@
+﻿@model Library.Models.Entity.Action
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Üye ID</label>
+        @Html.TextBoxFor(k => k.Member, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(k => k.Book, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(k => k.Staff, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Alış Tarihi </label>
+        <input type="text" class="form-control" name="BorrowDate"
+               value="@DateTime.Now.ToShortDateString() "/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="ReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color:#e021e6; color:white">Kitabı Ödünç Ver</button>
+        <input type="hidden" value="False" name="ProcessStatus" />
+    </div>
+</form>
+
+
+

@@ -28,6 +28,7 @@ namespace Library.Models.Entity
         public string Publisher { get; set; }
         public string Page { get; set; }
         public Nullable<bool> Status { get; set; }
+        public string BookImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Action> Action { get; set; }

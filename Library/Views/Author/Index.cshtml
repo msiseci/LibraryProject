@@ -8,11 +8,13 @@
 <h2>YAZARLAR</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:rgb(252, 178, 22)">
         <th>ID</th>
         <th>AD</th>
         <th>SOYAD</th>
         <th>DETAY</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
     </tr>
     
     @foreach(var y in Model )
@@ -20,8 +22,16 @@
          <td>@y.Id</td>
          <td>@y.AuthorName</td>
          <td>@y.AuthorSurname</td>
+         <td>@y.Detail</td>
+         <td>@Html.ActionLink("Sil","YazarSil",new { id = y.Id }, new
+        {
+            @class = "btn btn-danger",
+            onclick = "return confirm('Silmek istediğinizden emin misiniz?')"
+        })</td>
+         <td><a href="/Author/YazarGetir/@y.Id" class="btn btn-success">Güncelle</a></td>
+     
         </tr>
     }
 </table>
 
-<a class="btn btn-primary" href="#">Yeni Yazar Ekle</a>
+<a class="btn btn-primary" href="/Author/YazarEkle/">Yeni Yazar Ekle</a>

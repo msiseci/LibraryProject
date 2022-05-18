@@ -1,0 +1,30 @@
+﻿@model Library.Models.Entity.Author
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("YazarGuncelle", "Author", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <div style="margin-bottom:15px">
+            <label>Yazar ID</label>
+            @Html.TextBoxFor(y => y.Id, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yazar Adı</label>
+            @Html.TextBoxFor(y => y.AuthorName, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yazar Soyadı</label>
+            @Html.TextBoxFor(y => y.AuthorSurname, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yazar Detay</label>
+            @Html.TextAreaFor(y => y.Detail, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-warning">Yazar Bilgilerini Güncelle</button>
+    </div>
+
+}

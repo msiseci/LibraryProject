@@ -1,0 +1,41 @@
+﻿@model Library.Models.Entity.Book
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(k => k.BookName, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Kategorisi</label>
+        @Html.DropDownListFor(k=>k.Category1.Id,(List<SelectListItem>)ViewBag.dgr1,
+       new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar</label>
+        @Html.DropDownListFor(k => k.Author1.Id, (List<SelectListItem>)ViewBag.dgr2,
+       new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(k => k.PublicationYear, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yayınevi</label>
+        @Html.TextBoxFor(k => k.Publisher, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Sayfa Sayısı</label>
+        @Html.TextBoxFor(k => k.Page, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ekle</button>
+    </div>
+    @*<input type="hidden" name="Status" value="True" />*@
+</form>
+

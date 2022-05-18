@@ -1,0 +1,42 @@
+﻿@using Library.Models.Entity
+@model List<Library.Models.Entity.Action>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<h2>ÖDÜNÇ KİTAP LİSTESİ</h2>
+
+
+
+<table class="table table-bordered">
+    <tr style="background-color:rgb(252, 178, 22)">
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+      
+    </tr>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Id</td>
+            <td>@k.Book1.BookName</td>
+            <td>@k.Member1.MemberName&nbsp @k.Member1.MemberSurname</td>
+            <td>@k.Staff1.Staff1</td>
+            <td>@Convert.ToDateTime(k.BorrowDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.ReturnDate).ToString("dd/MM/yyyy")</td>
+         
+            <td> <a href="/Borrow/Odunciade/@k.Id" class="btn btn-default"
+                    style="background-color:#38d508; color:white">Kitabı İade Et</a></td>
+            
+        </tr>
+    }
+</table>
+
+

@@ -16,5 +16,49 @@ namespace Library.Controllers
             var degerler = db.Author.ToList();
             return View(degerler);
         }
+
+        [HttpGet]
+        public ActionResult YazarEkle()
+        {
+            return View();
+        }
+
+        public ActionResult YazarEkle(Author p)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View("YazarEkle");
+            }
+            db.Author.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult YazarSil(int id)
+        {
+            var yazar = db.Author.Find(id);
+            db.Author.Remove(yazar);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult YazarGetir(int id)
+        {
+            var yzr = db.Author.Find(id);
+            return View("YazarGetir", yzr);
+        }
+
+        public ActionResult YazarGuncelle(Author p)
+        {
+            var yzr = db.Author.Find(p.Id);
+            yzr.AuthorName = p.AuthorName; /* yzr den gelen  ad değeri p den gelen ad değeri olcak */
+            yzr.AuthorSurname = p.AuthorSurname;
+            yzr.Detail = p.Detail;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
+
+
 }

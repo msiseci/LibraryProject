@@ -1,0 +1,22 @@
+﻿@model Library.Models.Entity.Staff
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+       <div></div>
+    <div style="margin-top:15px">
+        <label>Personel Adı</label>
+        @*<input type="text" class="form-control" name="Staff1" />*@
+        @Html.TextBoxFor(x=>x.Staff1,new { @class="form-control"})
+        @Html.ValidationMessageFor(x=>x.Staff1,"",new { @style="color:red"}) @*arka planda çağrılan mesajı görüntülemek icin yazdık. ve mesajı arkadan cagırıdgımız ini "" kullandık*@
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+
+
+</form>
+
