@@ -1,0 +1,38 @@
+﻿@using Library.Models.Entity;
+@model List<Announcements>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+   
+}
+
+<h2>Duyurular</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr style="background-color:rgb(252, 178, 22)">
+        <th>DUYURU NO</th>
+        <th>KATEGORİ</th>
+        <th>TARİH</th>
+        <th>SİL</th>
+        <th>İÇERİK</th>
+    </tr>
+
+    @foreach (var prs in Model)
+    {
+       
+
+<tr>
+    <td>@prs.Id</td> @*prs den gelen Id adı *@
+    <td>@prs.Category</td>
+    <td>@Convert.ToDateTime(prs.Date).ToString("dd/MM/yyyy")</td>
+    <td><a href="/Announcement/DuyuruSil/@prs.Id" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Announcement/DuyuruDetay/@prs.Id" class="btn btn-default" style="background-color:skyblue">Detaylar</a></td>
+</tr>
+    }
+</table>
+
+<a href="/Announcement/YeniDuyuru/" class="btn btn-primary">Yeni Duyuru Ekle</a>
+
+
+

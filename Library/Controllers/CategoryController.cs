@@ -14,7 +14,7 @@ namespace Library.Controllers
         DbLibraryEntities db = new DbLibraryEntities();
         public ActionResult Index()
         {
-            var degerler = db.Category.ToList();
+            var degerler = db.Category.Where(x=>x.Status == true).ToList();
 
             return View(degerler);
         }
@@ -36,8 +36,10 @@ namespace Library.Controllers
         public ActionResult KategoriSil(int id) /* Id ye göre sildirdigimiz icin int prmt. aldı */
         {
             var category = db.Category.Find(id);
-            db.Category.Remove(category);
+            //db.Category.Remove(category);
+            category.Status = false;
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

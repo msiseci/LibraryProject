@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace Library.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

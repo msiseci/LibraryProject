@@ -65,5 +65,13 @@ namespace Library.Controllers
             return RedirectToAction("Index");
 
         }
+        public ActionResult UyeKitapGecmis(int id)
+        {
+            var kitapgecmis = db.Action.Where(x => x.Member == id).ToList();
+            var uyekit = db.Member.Where(y => y.Id == id).Select(z => z.MemberName + " "
+               + z.MemberSurname).FirstOrDefault();
+            ViewBag.u1 = uyekit;
+            return View(kitapgecmis);
+        }
     }
 }

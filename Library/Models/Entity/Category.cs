@@ -22,6 +22,7 @@ namespace Library.Models.Entity
     
         public byte Id { get; set; }
         public string CategoryName { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Book { get; set; }

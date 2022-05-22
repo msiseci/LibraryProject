@@ -25,6 +25,15 @@
           <Property Name="MemberDate" Type="smalldatetime" />
           <Property Name="ProcessStatus" Type="bit" />
         </EntityType>
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="100" />
+          <Property Name="Contents" Type="varchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="Id" />
@@ -62,6 +71,7 @@
           </Key>
           <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -87,13 +97,24 @@
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="School" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gönderen" Type="varchar" MaxLength="50" />
+          <Property Name="Alıcı" Type="varchar" MaxLength="50" />
+          <Property Name="Konu" Type="varchar" MaxLength="50" />
+          <Property Name="İçerik" Type="varchar" MaxLength="50" />
+          <Property Name="Tarih" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="Punishment">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Member" Type="int" />
-          <Property Name="Action" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Starting" Type="smalldatetime" />
           <Property Name="Finishing" Type="smalldatetime" />
           <Property Name="Money" Type="decimal" Precision="18" Scale="2" />
@@ -202,12 +223,14 @@
         <EntityContainer Name="DbLibraryModelStoreContainer">
           <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CashBox" EntityType="Self.CashBox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Punishment" EntityType="Self.Punishment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -303,6 +326,7 @@
           <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_Category" FromRole="Category" ToRole="Book" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -463,6 +487,8 @@
           </AssociationSet>
           <EntitySet Name="About" EntityType="DbLibraryModel.About" />
           <EntitySet Name="Contact" EntityType="DbLibraryModel.Contact" />
+          <EntitySet Name="Messages" EntityType="DbLibraryModel.Messages" />
+          <EntitySet Name="Announcements" EntityType="DbLibraryModel.Announcements" />
         </EntityContainer>
         <Association Name="FK_Action_Staff">
           <End Type="DbLibraryModel.Staff" Role="Staff" Multiplicity="0..1" />
@@ -492,6 +518,26 @@
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gönderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Alıcı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="İçerik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Announcements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contents" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -550,6 +596,7 @@
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="DbLibraryModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
@@ -616,6 +663,28 @@
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="DbLibraryModel.Messages">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="İçerik" ColumnName="İçerik" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Alıcı" ColumnName="Alıcı" />
+                <ScalarProperty Name="Gönderen" ColumnName="Gönderen" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="DbLibraryModel.Announcements">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

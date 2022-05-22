@@ -22,6 +22,8 @@
         <AssociationConnector Association="DbLibraryModel.FK_Action_Staff" />
         <EntityTypeShape EntityType="DbLibraryModel.About" Width="1.5" PointX="5.375" PointY="7.75" />
         <EntityTypeShape EntityType="DbLibraryModel.Contact" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DbLibraryModel.Messages" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DbLibraryModel.Announcements" Width="1.5" PointX="9.375" PointY="7.75" />
       </Diagram>
       <Diagram DiagramId="f847fbc56eaf4e029f679c52015de947" Name="Diagram2" >
         <EntityTypeShape EntityType="DbLibraryModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />

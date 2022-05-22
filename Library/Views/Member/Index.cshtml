@@ -14,13 +14,10 @@
         <th>ÜYE ID</th>
         <th>ÜYE ADI</th>
         <th>ÜYE SOYADI</th>
-        <th>MAİL</th>
-        <th>KULLANICI ADI</th>
-        <th>ŞİFRE</th>
-        <th>TELEFON</th>
         <tH>OKUL</tH>
         <th>SİL</th>
         <th>GÜNCELLE</th>
+        <th>Kitap Geçmişi</th>
     </tr>
 
     @foreach (var uye in Model)
@@ -29,15 +26,12 @@
             <td>@uye.Id</td> @*uye den gelen Id adı *@
             <td>@uye.MemberName</td>
             <td>@uye.MemberSurname</td>
-            <td>@uye.Email</td>
-            <td>@uye.UserName</td>
-            <td>@uye.Password</td>
-            <td>@uye.Phone</td>
             <td>@uye.School</td>
             <td><a href="/Member/UyeSil/@uye.Id" class="btn btn-danger">Sil</a></td>
             <td><a href="/Member/UyeGetir/@uye.Id" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Member/UyeKitapGecmis/@uye.Id" class="btn btn-success" style="background-color:lightsalmon">Kitap Geçmişi</a></td>
         </tr>
     }
 </table>
-@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index", new { sayfa}))
+@Html.PagedListPager((IPagedList)Model,sayfa=> Url.Action("Index", new { sayfa}))
 <a href="/Member/UyeEkle/" class="btn btn-primary">Yeni Üye Ekle</a>

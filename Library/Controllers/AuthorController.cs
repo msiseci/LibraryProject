@@ -58,6 +58,14 @@ namespace Library.Controllers
             return RedirectToAction("Index");
 
         }
+        public ActionResult YazarKitaplar(int id)
+        {
+            var yazar = db.Book.Where(x => x.Author == id).ToList();
+            var yzrad = db.Author.Where(y => y.Id == id).Select(z => z.AuthorName + " "
+                 + z.AuthorSurname).FirstOrDefault();
+            ViewBag.y1 = yzrad;
+            return View(yazar);
+        }
     }
 
 

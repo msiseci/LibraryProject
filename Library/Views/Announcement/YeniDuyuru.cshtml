@@ -1,0 +1,35 @@
+﻿@model Library.Models.Entity.Announcements
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>YeniDuyuru</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Duyuru Kategorisi</label>
+
+        @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru İçeriği</label>
+
+        @Html.TextBoxFor(x => x.Contents, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru Tarih</label>
+
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+
+
+</form>
+

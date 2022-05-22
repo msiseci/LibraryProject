@@ -1,0 +1,34 @@
+﻿@using Library.Models.Entity;
+@model List<Announcements>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Duyurular</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr style="background-color:rgb(252, 178, 22)">
+      
+        <th>KATEGORİ</th>
+        <th>TARİH</th>
+        <th>İÇERİK</th>
+    </tr>
+
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.Category</td> 
+            <td>@Convert.ToDateTime(prs.Date).ToString("dd/MM/yyyy")</td>
+            <td>@prs.Contents</td>
+            
+        </tr>
+    }
+</table>
+
+
+
+
+
+

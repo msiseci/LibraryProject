@@ -1,0 +1,27 @@
+﻿@using Library.Models.Entity
+@model List<Messages>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2> Gelen Mesajlar</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach(var x in Model)
+    { 
+        <tr>
+            <td>@x.Gönderen</td>
+            <td>@x.Konu</td>
+            <td>@x.İçerik</td>
+            <td>@x.Tarih</td>
+        </tr>
+    
+    }
+</table>

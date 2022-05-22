@@ -36,5 +36,7 @@ namespace Library.Models.Entity
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<About> About { get; set; }
         public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Messages> Messages { get; set; }
+        public virtual DbSet<Announcements> Announcements { get; set; }
     }
 }

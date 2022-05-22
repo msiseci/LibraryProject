@@ -8,15 +8,19 @@
     <div></div>
     <div style="margin-top:15px">
         <label>Üye ID</label>
-        @Html.TextBoxFor(k => k.Member, new { @class = "form-control" })
+        @*@Html.TextBoxFor(k => k.Member, new { @class = "form-control" })*@
+        @Html.DropDownListFor(k=>k.Member1.Id,(List<SelectListItem>)
+       ViewBag.dgr1, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Kitap ID</label>
-        @Html.TextBoxFor(k => k.Book, new { @class = "form-control" })
+        @Html.DropDownListFor(k => k.Book1.Id, (List<SelectListItem>)
+      ViewBag.dgr2, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Personel ID</label>
-        @Html.TextBoxFor(k => k.Staff, new { @class = "form-control" })
+        @Html.DropDownListFor(k => k.Staff1.Id, (List<SelectListItem>)
+ViewBag.dgr3, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Kitap Alış Tarihi </label>
