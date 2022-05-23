@@ -136,11 +136,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\ProcessController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WindowController.cs" />
@@ -158,6 +161,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Action.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Admin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Announcements.cs">
@@ -210,6 +216,7 @@
     </Compile>
     <Compile Include="Models\MyClass\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-master\.babelrc.js" />
@@ -265,6 +272,9 @@
     <Content Include="AdminLTE-master\dist\img\credit\paypal2.png" />
     <Content Include="AdminLTE-master\dist\img\credit\visa.png" />
     <Content Include="AdminLTE-master\dist\img\default-150x150.png" />
+    <Content Include="AdminLTE-master\dist\img\duyuru-icon.png" />
+    <Content Include="AdminLTE-master\dist\img\duyuru.jpg" />
+    <Content Include="AdminLTE-master\dist\img\girl1.jpg" />
     <Content Include="AdminLTE-master\dist\img\icons.png" />
     <Content Include="AdminLTE-master\dist\img\photo1.png" />
     <Content Include="AdminLTE-master\dist\img\photo2.png" />
@@ -2372,6 +2382,14 @@
     <Content Include="web2\resimler\book5.jpg" />
     <Content Include="web2\resimler\img1.jpg" />
     <Content Include="web2\w3layouts-License.txt" />
+    <Content Include="weberror\css\font-awesome.min.css" />
+    <Content Include="weberror\css\popuo-box.css" />
+    <Content Include="weberror\css\style.css" />
+    <Content Include="weberror\images\b8.jpg" />
+    <Content Include="weberror\index.html" />
+    <Content Include="weberror\js\jquery-2.2.3.min.js" />
+    <Content Include="weberror\js\jquery.magnific-popup.js" />
+    <Content Include="weberror\w3layouts-License.txt" />
     <Content Include="webhava\css\style.css" />
     <Content Include="webhava\images\bg.jpg" />
     <Content Include="webhava\images\img1.jpg" />
@@ -2939,6 +2957,18 @@
     <Content Include="Views\Announcement\YeniDuyuru.cshtml" />
     <Content Include="Views\Announcement\DuyuruDetay.cshtml" />
     <Content Include="Views\Panel\Duyurular.cshtml" />
+    <Content Include="Views\Panel\Partial1.cshtml" />
+    <Content Include="Views\Panel\Partial2.cshtml" />
+    <Content Include="Views\Message\Partial1.cshtml" />
+    <Content Include="Views\AdminLogin\Login.cshtml" />
+    <Content Include="Views\Error\Page404.cshtml" />
+    <Content Include="weberror\fonts\fontawesome-webfont.eot" />
+    <Content Include="weberror\fonts\fontawesome-webfont.ttf" />
+    <Content Include="weberror\fonts\fontawesome-webfont.woff" />
+    <Content Include="weberror\fonts\fontawesome-webfont.woff2" />
+    <Content Include="weberror\fonts\FontAwesome.otf" />
+    <Content Include="Views\Settings\Index2.cshtml" />
+    <Content Include="Views\Settings\AdminGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

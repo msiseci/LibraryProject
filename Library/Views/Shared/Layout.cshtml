@@ -56,17 +56,20 @@ body {font-family: "Lato", sans-serif;}
         <a href="/Author/Index/"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
         <a href="/Member/Index/"><i class="glyphicon glyphicon-user"></i> &nbsp; Üyeler</a>
         <a href="/Staff/Index/"><i class="glyphicon glyphicon-lock"></i> &nbsp; Personeller</a>
+        @if (User.IsInRole("A")) {
         <a href="/Borrow/OduncVer/"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Kitap Ver</a>
         <a href="/Borrow/Index/"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Ödünç Kitap Al</a>
+        }
+
         <a href="/Statistics/Index/"><i class="glyphicon glyphicon-sort"></i> &nbsp; İstatistikler</a>
         <a href="/Announcement/Index/"><i class="glyphicon glyphicon-bullhorn"></i> &nbsp; Duyurular</a>
         <a href="/Process/Index/"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; İşlemler</a>
-        <a href="/Statistics/Weather/"><i class="glyphicon glyphicon-cloud"></i> &nbsp; Hava Raporu</a>        
+        <a href="/Statistics/Weather/"><i class="glyphicon glyphicon-cloud"></i> &nbsp; Hava Raporu</a>
         <a href="/Statistics/Gallery/"><i class="glyphicon glyphicon-picture"></i> &nbsp; Galeri</a>
         <a href="/Window/Index"><i class="glyphicon glyphicon-gift"></i> &nbsp; Vitrin</a>
-        <a href="#"><i class="glyphicon glyphicon-cog"></i> &nbsp; Ayarlar</a>
+        <a href="/Settings/Index2/"><i class="glyphicon glyphicon-cog"></i> &nbsp; Ayarlar</a>
         <a href="#"><i class="glyphicon glyphicon-phone"></i> &nbsp; Yardım</a>
-        <a href="#"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
+        <a href="/Panel/LogOut/"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
     </div>
 
     <div class="main">

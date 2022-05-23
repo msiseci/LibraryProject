@@ -1,0 +1,35 @@
+﻿@model Library.Models.Entity.Admin
+@{
+    ViewBag.Title = "AdminGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("AdminGuncelle","Settings",FormMethod.Post))
+{
+
+<div style="margin-bottom:15px"></div>
+<div class="form-group">
+    <label>ID</label>
+    @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+    <br />
+
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(k => k.AdminUser, new { @class = "form-control" })
+    <br />
+
+    <label>Şifre</label>
+    @Html.TextBoxFor(k => k.Password, new { @class = "form-control" })
+
+    <br />
+
+    <label>Yetki</label>
+    @Html.TextBoxFor(k => k.Authority, new { @class = "form-control" })
+
+</div>
+<div>
+    <button class="btn btn-warning">Güncelle</button>
+</div>
+}
+
+
+

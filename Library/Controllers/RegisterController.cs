@@ -7,9 +7,11 @@ using Library.Models.Entity;
 
 namespace Library.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         // GET: Register
+       
         DbLibraryEntities db = new DbLibraryEntities();
         [HttpGet]
         public ActionResult Kayit()

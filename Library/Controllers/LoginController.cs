@@ -26,12 +26,7 @@ namespace Library.Controllers
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.Email, false);
                 Session["Mail"] = bilgiler.Email.ToString();
-                //TempData["Id"] = bilgiler.Id.ToString();
-                //TempData["Ad"] = bilgiler.MemberName.ToString();
-                //TempData["Soyad"] = bilgiler.MemberSurname.ToString();
-                //TempData["Kullanıcı Adı"] = bilgiler.UserName.ToString();
-                //TempData["Şifre"] = bilgiler.Password.ToString();
-                //TempData["Okul"] = bilgiler.School.ToString();
+                
                 return RedirectToAction("Index", "Panel");
             }
             else
@@ -40,5 +35,6 @@ namespace Library.Controllers
             }
             
         }
+
     }
 }

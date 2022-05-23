@@ -8,6 +8,7 @@ using Library.Models.MyClass;
 
 namespace Library.Controllers
 {
+    [AllowAnonymous]
     public class WindowController : Controller
     {
         // GET: Window

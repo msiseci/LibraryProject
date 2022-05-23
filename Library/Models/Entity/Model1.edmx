@@ -25,6 +25,15 @@
           <Property Name="MemberDate" Type="smalldatetime" />
           <Property Name="ProcessStatus" Type="bit" />
         </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminUser" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Authority" Type="char" MaxLength="1" />
+        </EntityType>
         <EntityType Name="Announcements">
           <Key>
             <PropertyRef Name="Id" />
@@ -223,6 +232,7 @@
         <EntityContainer Name="DbLibraryModelStoreContainer">
           <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
@@ -489,6 +499,7 @@
           <EntitySet Name="Contact" EntityType="DbLibraryModel.Contact" />
           <EntitySet Name="Messages" EntityType="DbLibraryModel.Messages" />
           <EntitySet Name="Announcements" EntityType="DbLibraryModel.Announcements" />
+          <EntitySet Name="Admin" EntityType="DbLibraryModel.Admin" />
         </EntityContainer>
         <Association Name="FK_Action_Staff">
           <End Type="DbLibraryModel.Staff" Role="Staff" Multiplicity="0..1" />
@@ -538,6 +549,15 @@
           <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contents" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminUser" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Authority" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -685,6 +705,16 @@
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Contents" ColumnName="Contents" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="DbLibraryModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AdminUser" ColumnName="AdminUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

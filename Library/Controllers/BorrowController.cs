@@ -12,6 +12,7 @@ namespace Library.Controllers
     {
         // GET: Borrow
         DbLibraryEntities db = new DbLibraryEntities();
+        [Authorize(Roles ="A")]
         public ActionResult Index()
         {
             var degerler = db.Action.Where(x => x.ProcessStatus == false).ToList();

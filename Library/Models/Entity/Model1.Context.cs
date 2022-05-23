@@ -38,5 +38,6 @@ namespace Library.Models.Entity
         public virtual DbSet<Contact> Contact { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Announcements> Announcements { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
     }
 }
